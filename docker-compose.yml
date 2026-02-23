@@ -1,0 +1,26 @@
+services:
+  server:
+    build: .
+    container_name: callcenter-server
+    hostname: server
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - callcenter-net
+
+  client:
+    build: .
+    container_name: callcenter-client
+    command: python3 client.py
+    environment:
+      - PYTHONUNBUFFERED=1
+    stdin_open: true
+    tty: true
+    depends_on:
+      - server
+    networks:
+      - callcenter-net
+
+networks:
+  callcenter-net:
+    driver: bridge
