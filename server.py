@@ -72,9 +72,6 @@ class CallCenterManager:
 
             if self.active_proto:
                 self.active_proto.transport.write(json.dumps({"response": timeout_msg}).encode('utf-8'))
-            
-            self.queue.insert(0, call_id)
-            reactor.callLater(0.1, self.check_queue_async)
 
     def handle_answer(self, op_id):
         """
