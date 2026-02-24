@@ -148,15 +148,7 @@ class CallCenterManager:
         if self.queue:
             return self.handle_call(self.queue.pop(0), from_queue=True)
         return None
-
-    def check_queue_async(self):
-        """
-        Notifies the client about queue delivery attempts after events
-        """
-        output = self.get_next_queue_output()
-        if output and self.active_proto:
-            self.active_proto.transport.write(json.dumps({"response": output}).encode('utf-8'))
-
+        
 class CallCenterProtocol(protocol.Protocol):
     """
     Twisted Protocol implementation for call center communication
