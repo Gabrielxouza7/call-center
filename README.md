@@ -52,5 +52,5 @@ sudo docker-compose up -d
 
 Para acessar o terminal interativo do cliente e começar a enviar comandos:
 ```
-docker attach callcenter-client
+sudo docker exec -it callcenter-client python3 client.py
 ```
