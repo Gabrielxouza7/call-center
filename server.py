@@ -46,16 +46,14 @@ class CallCenterManager:
                     except: pass
 
                 self.active_timeouts[op_id] = reactor.callLater(10, self.trigger_timeout, call_id, op_id)
-
-                # Usamos strip() para evitar linhas em branco sobrando no início
                 return f"{received_msg}Call {call_id} ringing for operator {op_id}".strip()
         
-        # Se não houver operador, vai para a fila (apenas se for uma chamada nova)
+        # if theres no operator call goes to the queue (only if its a new call)
         if not from_queue:
             self.queue.append(call_id)
             return f"{received_msg}Call {call_id} waiting in queue".strip()
         
-        return "" # Caso de segurança
+        return ""
 
     def trigger_timeout(self, call_id, op_id):
         """
