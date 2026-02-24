@@ -45,14 +45,12 @@ services:
 ### 2. Iniciar os serviços
 
 No terminal, dentro da pasta onde o arquivo foi criado, execute:
-Bash
 ```
 sudo docker-compose up -d
 ```
 ### 3. Interagir com o Cliente
 
 Para acessar o terminal interativo do cliente e começar a enviar comandos:
-Bash
 ```
 docker attach call-client
 ```
