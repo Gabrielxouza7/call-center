@@ -80,7 +80,7 @@ class CallCenterManager:
                 self.active_timeouts[op_id].cancel()
                 del self.active_timeouts[op_id]
             
-            self.operators[op_id]["state"] = "busy" # Step 7: Update to busy
+            self.operators[op_id]["state"] = "busy"
             call_id = self.operators[op_id]["current_call"]
             return f"Call {call_id} answered by operator {op_id}"
         
