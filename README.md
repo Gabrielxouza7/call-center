@@ -30,13 +30,13 @@ Crie um arquivo chamado `docker-compose.yml` e cole o conteúdo abaixo:
 services:
   server:
     image: gabrielssouza2702/call-center-server:v1.0
-    container_name: call-server
+    container_name: callcenter-server
     ports:
       - "5678:5678"
 
   client:
     image: gabrielssouza2702/call-center-client:v1.0
-    container_name: call-client
+    container_name: callcenter-client
     stdin_open: true
     tty: true
     depends_on:
@@ -52,5 +52,5 @@ sudo docker-compose up -d
 
 Para acessar o terminal interativo do cliente e começar a enviar comandos:
 ```
-docker attach call-client
+docker attach callcenter-client
 ```
